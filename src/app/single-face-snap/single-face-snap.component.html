@@ -1,0 +1,16 @@
+<div class="face-snap-card" [ngClass] = "{snapped: buttonText === 'Oops, unSnap!'}">
+    <!--     L'attribute binding permet de lier la valeur d'une propriété TypeScript à un attribut HTML,
+     en mettant l'attribut entre crochets  []  et en passant le nom de la propriété.
+ --> <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <!--  La string interpolation avec les doubles accolades  {{ }}  permet d'insérer la valeur d'une propriété TypeScript dans le template.
+ -->
+    <h2>{{ faceSnap.title |titlecase }}</h2>
+    <a routerLink="/facesnaps">Back</a>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'd MMMM yyyy' }}</p>
+    <p>{{ faceSnap.description }}</p>
+    <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location}}</p>
+    <p>
+        <button (click)="onSnap()">{{buttonText}}</button>
+        <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">{{ faceSnap.snaps }}</span>
+       
+</div>
