@@ -25,8 +25,6 @@ export class SingleFaceSnapComponent implements OnInit {
     this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
   }
 
-
-  
   onSnap() {
     if (this.buttonText === 'Oh Snap!') {
       this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
